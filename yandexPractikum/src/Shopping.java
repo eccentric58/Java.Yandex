@@ -25,14 +25,22 @@ public class Shopping {
             if (command == 1) {
                 System.out.println("Введите товар, который хотите добавить:");
                 String productName = scanner.next();
-                listShopping.add(productName);
+                if (listShopping.contains(productName)) {
+                    System.out.println("Данный товар уже имеется в списке товаров.");
+                } else {
+                    listShopping.add(productName);
+                }
             } else if (command == 2) {
                 System.out.println("Список товаров: ");
-                int count = 1;
-                for (String i : listShopping) {
-                    System.out.print(count + ". " + i);
-                    System.out.println();
-                    count++;
+                if (listShopping.isEmpty()) {
+                    System.out.println("Список товаров пуст.");
+                } else {
+                    int count = 1;
+                    for (String i : listShopping) {
+                        System.out.print(count + ". " + i);
+                        System.out.println();
+                        count++;
+                    }
                 }
             } else if (command == 3) {
                 listShopping.clear();
