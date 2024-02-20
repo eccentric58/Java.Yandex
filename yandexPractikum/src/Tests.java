@@ -47,9 +47,9 @@ public class Tests {
         Assert.assertEquals(shoppintTest, shoppingCopy);
     }
 
-    public void test4() {
-        int command = 4;
-        ListShopping list = new ListShopping();
-        Assert.assertEquals("Программа списка товаров завершена.", );
-    }
+//    public void test4() {
+//        int command = 4;
+//        ListShopping list = new ListShopping();
+//        Assert.assertEquals("Программа списка товаров завершена.", );
+//    }
 }
