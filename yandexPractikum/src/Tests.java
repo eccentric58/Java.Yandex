@@ -19,6 +19,7 @@ public class Tests {
         list.add("картошка");
         Assert.assertEquals(list, shoppingCopy);
     }
+
     @Test
     public void test2() {
         ListShopping shopping = new ListShopping();
@@ -29,6 +30,7 @@ public class Tests {
         list.add("пельмени");
         Assert.assertEquals(list, shoppingCopy);
     }
+
     @Test
     public void test3() {
         ListShopping shopping = new ListShopping();
@@ -47,9 +49,15 @@ public class Tests {
         Assert.assertEquals(shoppintTest, shoppingCopy);
     }
 
-//    public void test4() {
-//        int command = 4;
-//        ListShopping list = new ListShopping();
-//        Assert.assertEquals("Программа списка товаров завершена.", );
-//    }
+    @Test
+    public void test4() {
+        ListShopping list = new ListShopping();
+        list.addingProduct("Буханка хлеба");
+        List<String> listCopy = new ArrayList<>(list.listShopping);
+
+        Assert.assertEquals("буханка", listCopy.get(0));
+        // Этот тест не проходит, потому при добавлении Буханки хлеба "хлеба куда-то пропадает", но
+        // по дз мы вбиваем именно через нижнее подчеркивание. Если поясните как этот момент исправить,
+        // то буду Вам благодарен))
+    }
 }

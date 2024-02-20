@@ -13,6 +13,7 @@ public class ListShopping {
             listShopping.add(product.toLowerCase());
         }
     }
+
     protected void deleteProducts() {
         if (listShopping.isEmpty()) {
             System.out.println("Список товаров пуст.");
@@ -21,6 +22,7 @@ public class ListShopping {
             System.out.println("Список товаров пуст.");
         }
     }
+
     protected void printProduct() {
         if (listShopping.isEmpty()) {
             System.out.println("Список товаров пуст.");
@@ -32,6 +34,7 @@ public class ListShopping {
             }
         }
     }
+
     protected void printMenu() {
         System.out.println("Выберите одну из команд:");
         System.out.println("1. Добавить товар в список");
