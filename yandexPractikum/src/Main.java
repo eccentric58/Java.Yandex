@@ -1,6 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// Проект выложен на открытый github: https://github.com/eccentric58/Java.Yandex
 public class Main {
     public static void main(String[] args) {
 
