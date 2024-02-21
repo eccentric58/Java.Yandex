@@ -8,7 +8,6 @@ public class ListShopping {
 
     }
 
-    // Scanner scanner = new Scanner(System.in);
     public List<String> listShopping = new ArrayList<>();
 
     public void printMenu() {
