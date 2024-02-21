@@ -4,12 +4,10 @@ import java.util.Scanner;
 
 public class ListShopping {
 
-
-
     public List<String> listShopping = new ArrayList<>();
 
     Scanner scanner;
-    ListShopping() {
+    ListShopping(Scanner scanner) {
         this.scanner = scanner;
     }
 

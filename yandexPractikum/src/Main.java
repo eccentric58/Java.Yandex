@@ -7,7 +7,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Вас приветствует список покупок!");
-        ListShopping listShopping = new ListShopping();
+        ListShopping listShopping = new ListShopping(scanner);
 
         while (true) {
             try {
