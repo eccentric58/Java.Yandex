@@ -7,14 +7,14 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Вас приветствует список покупок!");
-        ListShopping listShopping = new ListShopping(scanner);
+        ListShopping listShopping = new ListShopping();
 
         while (true) {
             try {
                 System.out.println("Введите команду от 1 до 4.");
                 listShopping.printMenu();
                 int command = scanner.nextInt();
-                listShopping.commandSelection(command, scanner);
+                listShopping.commandSelection(command);
                 if (command == 4) break;
             } catch (InputMismatchException o) {
                 System.out.println("Вы ввели не цифру.");

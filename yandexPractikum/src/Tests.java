@@ -11,7 +11,7 @@ public class Tests {
 
     @Test
     public void test1() {
-        ListShopping shopping = new ListShopping(scanner);
+        ListShopping shopping = new ListShopping();
         shopping.addingProduct("Вареники");
         shopping.addingProduct("Пельмени");
         shopping.addingProduct("Картошка");
@@ -26,7 +26,7 @@ public class Tests {
 
     @Test
     public void test2() {
-        ListShopping shopping = new ListShopping(scanner);
+        ListShopping shopping = new ListShopping();
         shopping.addingProduct("Пельмени");
         List<String> shoppingCopy = new ArrayList<>();
         shoppingCopy.addAll(shopping.listShopping);
@@ -37,7 +37,7 @@ public class Tests {
 
     @Test
     public void test3() {
-        ListShopping shopping = new ListShopping(scanner);
+        ListShopping shopping = new ListShopping();
         shopping.addingProduct("КАРТОШКА");
         shopping.addingProduct("ПЕльмеНи");
         shopping.addingProduct("ТыкВА");
@@ -55,7 +55,7 @@ public class Tests {
 
     @Test
     public void test4() {
-        ListShopping list = new ListShopping(scanner);
+        ListShopping list = new ListShopping();
         list.addingProduct("Буханка хлеба");
         List<String> listCopy = new ArrayList<>(list.listShopping);
 

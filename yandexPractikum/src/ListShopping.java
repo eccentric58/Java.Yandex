@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class ListShopping {
 
-    ListShopping(Scanner scanner) {
 
-    }
 
     public List<String> listShopping = new ArrayList<>();
+
+    Scanner scanner;
+    ListShopping() {
+        this.scanner = scanner;
+    }
 
     public void printMenu() {
         System.out.println("Выберите одну из команд:");
@@ -47,7 +50,7 @@ public class ListShopping {
         }
     }
 
-    public void commandSelection(int command, Scanner scanner) {
+    public void commandSelection(int command) {
         switch (command) {
             case 1:
                 System.out.println("Введите товар, который хотите добавить: ");
