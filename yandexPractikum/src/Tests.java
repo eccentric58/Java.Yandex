@@ -3,11 +3,15 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Tests {
+
+    Scanner scanner = new Scanner(System.in);
+
     @Test
     public void test1() {
-        ListShopping shopping = new ListShopping();
+        ListShopping shopping = new ListShopping(scanner);
         shopping.addingProduct("Вареники");
         shopping.addingProduct("Пельмени");
         shopping.addingProduct("Картошка");
@@ -22,7 +26,7 @@ public class Tests {
 
     @Test
     public void test2() {
-        ListShopping shopping = new ListShopping();
+        ListShopping shopping = new ListShopping(scanner);
         shopping.addingProduct("Пельмени");
         List<String> shoppingCopy = new ArrayList<>();
         shoppingCopy.addAll(shopping.listShopping);
@@ -33,7 +37,7 @@ public class Tests {
 
     @Test
     public void test3() {
-        ListShopping shopping = new ListShopping();
+        ListShopping shopping = new ListShopping(scanner);
         shopping.addingProduct("КАРТОШКА");
         shopping.addingProduct("ПЕльмеНи");
         shopping.addingProduct("ТыкВА");
@@ -51,11 +55,11 @@ public class Tests {
 
     @Test
     public void test4() {
-        ListShopping list = new ListShopping();
+        ListShopping list = new ListShopping(scanner);
         list.addingProduct("Буханка хлеба");
         List<String> listCopy = new ArrayList<>(list.listShopping);
 
-        Assert.assertEquals("буханка", listCopy.get(0));
+        Assert.assertEquals("буханка хлеба", listCopy.get(0));
         // Этот тест не проходит, потому при добавлении Буханки хлеба "хлеба" куда-то пропадает, но
         // по ТЗ мы вводим данные именно через нижнее подчеркивание. Если поясните как этот момент исправить,
         // то буду Вам благодарен))

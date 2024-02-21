@@ -7,18 +7,18 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Вас приветствует список покупок!");
-        ListShopping list = new ListShopping();
+        ListShopping listShopping = new ListShopping(scanner);
 
         while (true) {
             try {
                 System.out.println("Введите команду от 1 до 4.");
-                list.printMenu();
+                listShopping.printMenu();
                 int command = scanner.nextInt();
-                list.commandSelection(command);
+                listShopping.commandSelection(command, scanner);
                 if (command == 4) break;
             } catch (InputMismatchException o) {
                 System.out.println("Вы ввели не цифру.");
-                break;
+                scanner.nextLine();
             }
         }
     }

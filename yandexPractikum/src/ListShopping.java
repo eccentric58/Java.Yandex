@@ -3,27 +3,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ListShopping {
-    Scanner scanner = new Scanner(System.in);
-    protected List<String> listShopping = new ArrayList<>();
 
-    protected void addingProduct(String product) {
-        if (listShopping.contains(product.toLowerCase())) {
-            System.out.println("Данный товар уже есть в списке покупков.");
-        } else {
-            listShopping.add(product.toLowerCase());
-        }
+    ListShopping(Scanner scanner) {
+
     }
 
-    protected void deleteProducts() {
-        if (listShopping.isEmpty()) {
-            System.out.println("Список товаров пуст.");
-        } else {
-            listShopping.clear();
-            System.out.println("Список товаров пуст.");
-        }
+    // Scanner scanner = new Scanner(System.in);
+    public List<String> listShopping = new ArrayList<>();
+
+    public void printMenu() {
+        System.out.println("Выберите одну из команд:");
+        System.out.println("1. Добавить товар в список");
+        System.out.println("2. Показать список");
+        System.out.println("3. Очистить список");
+        System.out.println("4. Завершить работу");
     }
 
-    protected void printProduct() {
+    public void printProduct() {
         if (listShopping.isEmpty()) {
             System.out.println("Список товаров пуст.");
         } else {
@@ -35,15 +31,24 @@ public class ListShopping {
         }
     }
 
-    protected void printMenu() {
-        System.out.println("Выберите одну из команд:");
-        System.out.println("1. Добавить товар в список");
-        System.out.println("2. Показать список");
-        System.out.println("3. Очистить список");
-        System.out.println("4. Завершить работу");
+    public void addingProduct(String product) {
+        if (listShopping.contains(product.toLowerCase())) {
+            System.out.println("Данный товар уже есть в списке покупков.");
+        } else {
+            listShopping.add(product.toLowerCase());
+        }
     }
 
-    protected void commandSelection(int command) {
+    private void deleteProducts() {
+        if (listShopping.isEmpty()) {
+            System.out.println("Список товаров пуст.");
+        } else {
+            listShopping.clear();
+            System.out.println("Список товаров пуст.");
+        }
+    }
+
+    public void commandSelection(int command, Scanner scanner) {
         switch (command) {
             case 1:
                 System.out.println("Введите товар, который хотите добавить: ");
