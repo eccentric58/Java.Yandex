@@ -7,6 +7,7 @@ public class ListShopping {
     public List<String> listShopping = new ArrayList<>();
 
     Scanner scanner;
+
     ListShopping(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -39,15 +40,6 @@ public class ListShopping {
         }
     }
 
-    private void deleteProducts() {
-        if (listShopping.isEmpty()) {
-            System.out.println("Список товаров пуст.");
-        } else {
-            listShopping.clear();
-            System.out.println("Список товаров пуст.");
-        }
-    }
-
     public void commandSelection(int command) {
         switch (command) {
             case 1:
@@ -68,6 +60,15 @@ public class ListShopping {
             case 4:
                 System.out.println("Программа списка товаров завершена.");
                 break;
+        }
+    }
+
+    private void deleteProducts() {
+        if (listShopping.isEmpty()) {
+            System.out.println("Список товаров пуст.");
+        } else {
+            listShopping.clear();
+            System.out.println("Список товаров пуст.");
         }
     }
 }
