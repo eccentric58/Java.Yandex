@@ -1,7 +1,6 @@
 public class Converter {
     int step = 75;
 
-
     int convertToKm(int steps) {
         return steps / step;
     }

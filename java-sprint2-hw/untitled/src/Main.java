@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static StepTracker stepTracker = new StepTracker(scanner);
+    static boolean theEnd = true;
 
     public static void main(String[] args) {
 
-        while (true) {
+        while (theEnd) {
             printMenu();
             choiceCommand(scanner);
         }
@@ -24,7 +25,6 @@ public class Main {
     }
 
     private static void choiceCommand(Scanner scanner) {
-
         int command = scanner.nextInt();
         switch (command) {
 
@@ -38,10 +38,11 @@ public class Main {
                 stepTracker.printStatistic();
                 break;
             case 4:
-                System.out.println("Программа завершена");
+                System.out.println("Программа завершена.");
+                theEnd = false;
                 return;
             default:
-                System.out.println("Вы ввели неверную команду");
+                System.out.println("Вы ввели неверную команду.");
                 break;
         }
     }
