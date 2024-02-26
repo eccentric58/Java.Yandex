@@ -9,6 +9,21 @@ public class MonthData {
     static StepTracker stepTracker;
 
     MonthData() {
+        fillMonth();
+        for (int i = 0; i < month.size(); i++) {
+        }
+    }
+
+    void printStats(String month) {
+        if (MonthData.map.containsKey(month)) {
+            System.out.println("Месяц " + month.toLowerCase() + ":");
+            for (Integer i : stepTracker.steps.keySet()) {
+                System.out.println("День " + i + " шагов: " + stepTracker.steps.get(i));
+            }
+        }
+    }
+
+    void fillMonth() {
         month.add("Январь");
         month.add("Февраль");
         month.add("Март");
@@ -23,12 +38,4 @@ public class MonthData {
         month.add("Декабрь");
     }
 
-    void printStats(String month) {
-        if (MonthData.map.containsKey(month)) {
-            System.out.println("Месяц " + month + ":");
-            for (Integer i : stepTracker.steps.keySet()) {
-                System.out.println("День " + i + " шагов: " + stepTracker.steps.get(i));
-            }
-        }
-    }
 }
