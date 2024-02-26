@@ -10,8 +10,6 @@ public class MonthData {
 
     MonthData() {
         fillMonth();
-        for (int i = 0; i < month.size(); i++) {
-        }
     }
 
     void printStats(String month) {

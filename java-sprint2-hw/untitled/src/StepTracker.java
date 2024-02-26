@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class StepTracker {
+
+    int goalByStepsPerDay = 10000;
     MonthData monthData;
     static HashMap<Integer, Integer> steps = new HashMap<>();
     Scanner scanner;
@@ -24,5 +26,41 @@ public class StepTracker {
         int step = scanner.nextInt();
         fillDayAndStep(day, step);
         MonthData.map.put(month, steps);
+    }
+
+    void changeStepGoal(int newChangeStepGoal) {
+        goalByStepsPerDay = newChangeStepGoal;
+    }
+
+    int getSumSteps() {
+        int sum = 0;
+        for (int value : steps.values()) {
+            sum += value;
+        }
+        return sum;
+    }
+
+    int getMaxSteps() {
+        int max = 0;
+        for (int value : steps.values()) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
+    int getMaxSeries() {
+        int localMax = 0;
+        int globalMax = 0;
+        for (int value : steps.values()) {
+            if (value > goalByStepsPerDay) {
+                localMax++;
+            } else {
+                globalMax = localMax;
+                localMax = 0;
+            }
+        }
+        return globalMax;
     }
 }
