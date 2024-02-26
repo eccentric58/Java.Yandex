@@ -1,18 +1,17 @@
 import com.sun.security.jgss.GSSUtil;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    static Scanner scanner = new Scanner(System.in);
+    static StepTracker stepTracker = new StepTracker(scanner);
 
-        Scanner scanner = new Scanner(System.in);
-        MonthData monthData = new MonthData();
-        StepTracker stepTracker = new StepTracker(scanner, monthData);
-        System.out.println(monthData.map);
+    public static void main(String[] args) {
 
         while (true) {
             printMenu();
-            choiceCommand(scanner, stepTracker, monthData);
+            choiceCommand(scanner);
         }
     }
 
@@ -24,36 +23,25 @@ public class Main {
         System.out.println("4. Выход из приложения.");
     }
 
-    private static void choiceCommand(Scanner scanner, StepTracker stepTracker, MonthData monthData) {
+    private static void choiceCommand(Scanner scanner) {
 
         int command = scanner.nextInt();
         switch (command) {
 
             case 1:
-                stepTracker.addNewNumberStepsPerDay();
+                stepTracker.AddNewNumberStepsPerDay();
                 break;
             case 2:
-                System.out.println("Сейчас цель по количеству шагов в день : " + stepTracker.goalByStepsPerDay);
-                System.out.println("Введите новую цель по количеству шагов в день!");
-                int goalByStepsPerDay = scanner.nextInt();
-                stepTracker.changeStepGoal(goalByStepsPerDay);
-                System.out.println("Цель по количеству шагов в день изменена на " + stepTracker.goalByStepsPerDay);
-                System.out.println();
+                stepTracker.changeStepGoal();
                 break;
             case 3:
-                System.out.println("За какой месяц вы хотите вывести информацию?");
-                String month = scanner.next();
-                monthData.printStats(month);
-                System.out.println("Общее количество шагов за месяц " + month.toLowerCase() + ": " + stepTracker.getSumSteps());
-                System.out.println("Максимальное количество шагов за месяц " + month.toLowerCase() + ": " + stepTracker.getMaxSteps());
-                System.out.println("Лучшая серия шагов: " + stepTracker.getMaxSeries());
+                stepTracker.printStatistic();
                 break;
             case 4:
-                System.out.println("Программа счетчик калорий завершена.");
+                System.out.println("Программа завершена");
                 return;
             default:
-                System.out.println("Вы ввели неверную команду.");
-                System.out.println();
+                System.out.println("Вы ввели неверную команду");
                 break;
         }
     }

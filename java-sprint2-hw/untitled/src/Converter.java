@@ -3,15 +3,12 @@ public class Converter {
 
 
     int convertToKm(int steps) {
-        return (steps / step);
+        return steps / step;
     }
 
-    int convertStepsToKilocalories(int steps) {
+    int convertStepsToKilocalies(int steps) {
         return (steps * 50) / 1000;
     }
 
-    void printInfo() {
-        System.out.println();
-    }
 
 }

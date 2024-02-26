@@ -1,38 +1,48 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class MonthData {
+    int[] days = new int[30];
 
-    static ArrayList<String> month = new ArrayList<>();
-    static Map<String, HashMap<Integer, Integer>> map = new HashMap<>();
-    static StepTracker stepTracker;
-
-    MonthData() {
-        fillMonth();
-    }
-
-    void printStats(String month) {
-        if (MonthData.map.containsKey(month)) {
-            System.out.println("Месяц " + month.toLowerCase() + ":");
-            for (Integer i : stepTracker.steps.keySet()) {
-                System.out.println("День " + i + " шагов: " + stepTracker.steps.get(i));
-            }
+    void printDaysAndStepsFromMonth() {
+        for (int i = 0; i < days.length; i++) {
+            // вывод элементов массива в нужном формате
+            System.out.println("День " + i + ": " + days[i] + " шагов.");
         }
     }
 
-    void fillMonth() {
-        month.add("Январь");
-        month.add("Февраль");
-        month.add("Март");
-        month.add("Апрель");
-        month.add("Май");
-        month.add("Июнь");
-        month.add("Июль");
-        month.add("Август");
-        month.add("Сентябрь");
-        month.add("Октябрь");
-        month.add("Ноябрь");
-        month.add("Декабрь");
+    int sumStepsFromMonth() {
+        int sum = 0;
+
+        for (int i = 0; i < days.length; i++) {
+            sum += days[i];
+        }
+        return sum;
+    }
+
+
+    int maxSteps() {
+        int max = 0;
+        for (int i = 0; i < days.length; i++) {
+            if (days[i] > max) {
+                max = days[i];
+            }
+        }
+        return max;
+    }
+
+    int bestSeries(int goalByStepsPerDay) {
+        int localBestSeries = 0;
+        int globalBestSeies = 0;
+        for (int i = 0; i < days.length; i++) {
+            if (days[i] > goalByStepsPerDay) {
+                localBestSeries++;
+            } else {
+                globalBestSeies = localBestSeries;
+                localBestSeries = 0;
+            }
+        }
+        return globalBestSeies;
     }
 }
