@@ -8,6 +8,4 @@ public class Converter {
     int convertStepsToKilocalies(int steps) {
         return (steps * 50) / 1000;
     }
-
-
 }
