@@ -37,5 +37,4 @@ public class MonthData {
         month.add("Ноябрь");
         month.add("Декабрь");
     }
-
 }
