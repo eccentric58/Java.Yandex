@@ -6,9 +6,10 @@ public class MonthData {
     int[] days = new int[30];
 
     void printDaysAndStepsFromMonth() {
-        for (int i = 0; i < days.length; i++) {
-            // вывод элементов массива в нужном формате
-            System.out.println("День " + i + ": " + days[i] + " шагов.");
+        for (int i : days) {
+            if (i != 0) {
+                System.out.println(i);
+            }
         }
     }
 
@@ -35,12 +36,14 @@ public class MonthData {
     int bestSeries(int goalByStepsPerDay) {
         int localBestSeries = 0;
         int globalBestSeies = 0;
-        for (int i = 0; i < days.length; i++) {
-            if (days[i] > goalByStepsPerDay) {
+        for (int i : days) {
+            if (i > goalByStepsPerDay) {
                 localBestSeries++;
             } else {
-                globalBestSeies = localBestSeries;
-                localBestSeries = 0;
+                if (localBestSeries > globalBestSeies) {
+                    globalBestSeies = localBestSeries;
+                    localBestSeries = 0;
+                }
             }
         }
         return globalBestSeies;
