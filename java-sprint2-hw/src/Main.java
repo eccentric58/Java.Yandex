@@ -1,6 +1,3 @@
-import com.sun.security.jgss.GSSUtil;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {

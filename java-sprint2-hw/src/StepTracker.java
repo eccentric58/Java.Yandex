@@ -18,13 +18,13 @@ public class StepTracker {
     void AddNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int month = scanner.nextInt();
-        if ((month < 0) || (month > 12)) {
+        if ((month <= 0) || (month > 12)) {
             System.out.println("Номер месяца неправильный");
             return;
         }
         System.out.println("Введите день от 1 до 30 (включительно)");
         int day = scanner.nextInt();
-        if (day < 0 || day > 30) {
+        if (day <= 0 || day > 30) {
             System.out.println("Вы ввели неправильный день");
         }
         System.out.println("Введите количество шагов");
@@ -33,8 +33,8 @@ public class StepTracker {
             System.out.println("Такого быть не может");
             return;
         }
-        MonthData monthData = monthToData[month];
-        monthData.days[day] = step;
+        MonthData monthData = monthToData[month - 1];
+        monthData.days[day - 1] = step;
 
     }
     void changeStepGoal() {
@@ -50,11 +50,11 @@ public class StepTracker {
     void printStatistic() {
         System.out.println("Введите число месяца");
         int month = scanner.nextInt();
-        if (month < 0 || month > 12) {
+        if (month <= 0 || month > 12) {
             System.out.println("Вы ввели неправильное число");
         }
 
-        MonthData monthData = monthToData[month];
+        MonthData monthData = monthToData[month - 1];
         int sumSteps = monthData.sumStepsFromMonth();
         monthData.printDaysAndStepsFromMonth();
         System.out.println("Количество шагов за месяц " + month + ": " + sumSteps);

@@ -37,7 +37,7 @@ public class MonthData {
         int localBestSeries = 0;
         int globalBestSeies = 0;
         for (int i : days) {
-            if (i > goalByStepsPerDay) {
+            if (i >= goalByStepsPerDay) {
                 localBestSeries++;
             } else {
                 if (localBestSeries > globalBestSeies) {
