@@ -1,7 +1,4 @@
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class DinnerConstructor {
     Random random = new Random();
@@ -50,11 +47,22 @@ public class DinnerConstructor {
         System.out.println("Начинаем конструировать обед...");
 
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
-        int numberOfCombos = scanner.nextInt();
+        int numberOfCombos = 0;
+
+        while (true) {
+            try {
+                numberOfCombos = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Нужно ввести число. Попробуйте еще раз.");
+                scanner.nextLine();
+            }
+        }
         scanner.nextLine();
 
-        System.out.print("Вводите типы блюда, разделяя символом переноса строки (enter)." +
+        System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter)." +
                 " Для завершения ввода введите пустую строку");
+
         String nextItem = scanner.nextLine();
         ArrayList<String> comboDishes = new ArrayList<>();
         comboDishes.add(nextItem);
@@ -73,9 +81,15 @@ public class DinnerConstructor {
                 if (dinner.containsKey(s)) {
                     ArrayList<String> d = dinner.get(s);
                     comboFinish.add(d.get(random.nextInt(d.size())));
+                } else {
+                    System.out.println("Данного меню нет в наличии. Выберете то, что есть.");
+                    break;
                 }
             }
-            System.out.println(comboFinish);
+            if (!comboFinish.isEmpty()) {
+                System.out.println(comboFinish);
+            }
+
         }
     }
 }
